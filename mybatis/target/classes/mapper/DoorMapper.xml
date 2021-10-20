@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hikvision.mybatis.dao.DoorDao">
+    <!-- 开启二级缓存 -->
+<!--    <cache></cache>-->
+    <!--引用dao接口中的缓存，使得dao接口中注解sql方法和xml中方法共享缓存-->
+    <cache-ref namespace="com.hikvision.mybatis.dao.DoorDao"/>
+
+
+    <!--1.使用useCache决定是否开启关闭对应方法缓存-->
+    <!--2.也还可以使用flushCache="true"关闭对应方法缓存，不过该属性是清空该DoorDao接口中所有方法的缓存，不仅仅只清除当前方法的缓存-->
+    <select id="listAll" resultType="DoorDto">
+        select acs_door_id, door_index_code, door_name, acs_dev_index_code,
+            region_index_code, region_name, door_no, channel_no, channel_type,
+            install_location, remark, status, create_time, update_time
+        from tb_acs_door
+    </select>
+
+    <select id="listAllTwo" resultType="DoorDto">
+        select acs_door_id, door_index_code, door_name, acs_dev_index_code,
+               region_index_code, region_name, door_no, channel_no, channel_type,
+               install_location, remark, status, create_time, update_time
+        from tb_acs_door
+    </select>
+
+    <update id="updateNameById" parameterType="String">
+        UPDATE tb_acs_door set door_name = #{name} where acs_door_id=#{id}
+    </update>
+
+    <select id="getValueByAttr" parameterType="String" resultType="DoorDto">
+        SELECT acs_door_id, door_index_code, door_name, acs_dev_index_code,
+               region_index_code, region_name, door_no, channel_no, channel_type,
+               install_location, remark, status, create_time, update_time
+        FROM tb_acs_door
+        WHERE ${attr} = #{value}
+    </select>
+
+    <select id="getDoorByLike" parameterType="String" resultType="DoorDto">
+        SELECT acs_door_id, door_index_code, door_name, acs_dev_index_code,
+        region_index_code, region_name, door_no, channel_no, channel_type,
+        install_location, remark, status, create_time, update_time
+        FROM tb_acs_door
+        WHERE status = 1
+        <choose>
+            <when test="name != null">
+                <!--bind 元素允许你在 OGNL 表达式以外创建一个变量，并将其绑定到当前的上下文-->
+                <bind name="name" value="'%' + name + '%'"/>
+                AND door_name like #{name}
+            </when>
+            <when test="regionName != null ">
+                <bind name="regionName" value="'%' + regionName + '%'"/>
+                AND region_name like #{regionName}
+            </when>
+            <otherwise>
+                AND remark is not null
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

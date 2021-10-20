@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hikvision.mybatis.dao.TbEventMapper">
+  <resultMap id="BaseResultMap" type="com.hikvision.mybatis.model.TbEvent">
+    <!--@mbg.generated-->
+    <!--@Table tb_event-->
+    <result column="event_id" jdbcType="VARCHAR" property="eventId" />
+    <result column="event_type" jdbcType="INTEGER" property="eventType" />
+    <result column="event_time" jdbcType="TIMESTAMP" property="eventTime" />
+    <result column="event_name" jdbcType="VARCHAR" property="eventName" />
+    <result column="event_code" jdbcType="INTEGER" property="eventCode" />
+    <result column="event_card" jdbcType="VARCHAR" property="eventCard" />
+    <result column="person_id" jdbcType="VARCHAR" property="personId" />
+    <result column="person_name" jdbcType="VARCHAR" property="personName" />
+    <result column="dept_id" jdbcType="VARCHAR" property="deptId" />
+    <result column="dept_path" jdbcType="VARCHAR" property="deptPath" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="device_id" jdbcType="VARCHAR" property="deviceId" />
+    <result column="device_code" jdbcType="VARCHAR" property="deviceCode" />
+    <result column="door_index_code" jdbcType="VARCHAR" property="doorIndexCode" />
+    <result column="device_name" jdbcType="VARCHAR" property="deviceName" />
+    <result column="device_type" jdbcType="INTEGER" property="deviceType" />
+    <result column="door_name" jdbcType="VARCHAR" property="doorName" />
+    <result column="devicel1_id" jdbcType="VARCHAR" property="devicel1Id" />
+    <result column="devicel1_name" jdbcType="VARCHAR" property="devicel1Name" />
+    <result column="devicel1_type" jdbcType="INTEGER" property="devicel1Type" />
+    <result column="devicel2_id" jdbcType="VARCHAR" property="devicel2Id" />
+    <result column="devicel2_name" jdbcType="VARCHAR" property="devicel2Name" />
+    <result column="devicel2_type" jdbcType="INTEGER" property="devicel2Type" />
+    <result column="devicel3_id" jdbcType="VARCHAR" property="devicel3Id" />
+    <result column="devicel3_name" jdbcType="VARCHAR" property="devicel3Name" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="region_id_device" jdbcType="VARCHAR" property="regionIdDevice" />
+    <result column="region_id_door" jdbcType="VARCHAR" property="regionIdDoor" />
+    <result column="door_region_name" jdbcType="VARCHAR" property="doorRegionName" />
+    <result column="device_region_name" jdbcType="VARCHAR" property="deviceRegionName" />
+    <result column="devicel3_type" jdbcType="INTEGER" property="devicel3Type" />
+    <result column="door_id" jdbcType="VARCHAR" property="doorId" />
+    <result column="trigger_record" jdbcType="VARCHAR" property="triggerRecord" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="card_pic" jdbcType="VARCHAR" property="cardPic" />
+    <result column="card_states" jdbcType="INTEGER" property="cardStates" />
+    <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
+    <result column="svr_index_code" jdbcType="VARCHAR" property="svrIndexCode" />
+    <result column="job_number" jdbcType="VARCHAR" property="jobNumber" />
+    <result column="cert_no" jdbcType="VARCHAR" property="certNo" />
+    <result column="student_id" jdbcType="VARCHAR" property="studentId" />
+    <result column="in_and_out" jdbcType="VARCHAR" property="inAndOut" />
+    <result column="event_time_dif" jdbcType="VARCHAR" property="eventTimeDif" />
+    <result column="utc_receive_time" jdbcType="BIGINT" property="utcReceiveTime" />
+    <result column="receive_time_dif" jdbcType="VARCHAR" property="receiveTimeDif" />
+    <result column="extend_property" jdbcType="OTHER" property="extendProperty" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    event_id, event_type, event_time, event_name, event_code, event_card, person_id, 
+    person_name, dept_id, dept_path, dept_name, device_id, device_code, door_index_code, 
+    device_name, device_type, door_name, devicel1_id, devicel1_name, devicel1_type, devicel2_id, 
+    devicel2_name, devicel2_type, devicel3_id, devicel3_name, tag, region_id_device, 
+    region_id_door, door_region_name, device_region_name, devicel3_type, door_id, trigger_record, 
+    remark, card_pic, card_states, receive_time, svr_index_code, job_number, cert_no, 
+    student_id, in_and_out, event_time_dif, utc_receive_time, receive_time_dif, extend_property
+  </sql>
+  <insert id="insert" parameterType="com.hikvision.mybatis.model.TbEvent">
+    <!--@mbg.generated-->
+    insert into tb_event (event_id, event_type, event_time, 
+      event_name, event_code, event_card, 
+      person_id, person_name, dept_id, 
+      dept_path, dept_name, device_id, 
+      device_code, door_index_code, device_name, 
+      device_type, door_name, devicel1_id, 
+      devicel1_name, devicel1_type, devicel2_id, 
+      devicel2_name, devicel2_type, devicel3_id, 
+      devicel3_name, tag, region_id_device, 
+      region_id_door, door_region_name, device_region_name, 
+      devicel3_type, door_id, trigger_record, 
+      remark, card_pic, card_states, 
+      receive_time, svr_index_code, job_number, 
+      cert_no, student_id, in_and_out, 
+      event_time_dif, utc_receive_time, receive_time_dif, 
+      extend_property)
+    values (#{eventId,jdbcType=VARCHAR}, #{eventType,jdbcType=INTEGER}, #{eventTime,jdbcType=TIMESTAMP}, 
+      #{eventName,jdbcType=VARCHAR}, #{eventCode,jdbcType=INTEGER}, #{eventCard,jdbcType=VARCHAR}, 
+      #{personId,jdbcType=VARCHAR}, #{personName,jdbcType=VARCHAR}, #{deptId,jdbcType=VARCHAR}, 
+      #{deptPath,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, #{deviceId,jdbcType=VARCHAR}, 
+      #{deviceCode,jdbcType=VARCHAR}, #{doorIndexCode,jdbcType=VARCHAR}, #{deviceName,jdbcType=VARCHAR}, 
+      #{deviceType,jdbcType=INTEGER}, #{doorName,jdbcType=VARCHAR}, #{devicel1Id,jdbcType=VARCHAR}, 
+      #{devicel1Name,jdbcType=VARCHAR}, #{devicel1Type,jdbcType=INTEGER}, #{devicel2Id,jdbcType=VARCHAR}, 
+      #{devicel2Name,jdbcType=VARCHAR}, #{devicel2Type,jdbcType=INTEGER}, #{devicel3Id,jdbcType=VARCHAR}, 
+      #{devicel3Name,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{regionIdDevice,jdbcType=VARCHAR}, 
+      #{regionIdDoor,jdbcType=VARCHAR}, #{doorRegionName,jdbcType=VARCHAR}, #{deviceRegionName,jdbcType=VARCHAR}, 
+      #{devicel3Type,jdbcType=INTEGER}, #{doorId,jdbcType=VARCHAR}, #{triggerRecord,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{cardPic,jdbcType=VARCHAR}, #{cardStates,jdbcType=INTEGER}, 
+      #{receiveTime,jdbcType=TIMESTAMP}, #{svrIndexCode,jdbcType=VARCHAR}, #{jobNumber,jdbcType=VARCHAR}, 
+      #{certNo,jdbcType=VARCHAR}, #{studentId,jdbcType=VARCHAR}, #{inAndOut,jdbcType=VARCHAR}, 
+      #{eventTimeDif,jdbcType=VARCHAR}, #{utcReceiveTime,jdbcType=BIGINT}, #{receiveTimeDif,jdbcType=VARCHAR}, 
+      #{extendProperty,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hikvision.mybatis.model.TbEvent">
+    <!--@mbg.generated-->
+    insert into tb_event
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eventId != null">
+        event_id,
+      </if>
+      <if test="eventType != null">
+        event_type,
+      </if>
+      <if test="eventTime != null">
+        event_time,
+      </if>
+      <if test="eventName != null">
+        event_name,
+      </if>
+      <if test="eventCode != null">
+        event_code,
+      </if>
+      <if test="eventCard != null">
+        event_card,
+      </if>
+      <if test="personId != null">
+        person_id,
+      </if>
+      <if test="personName != null">
+        person_name,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptPath != null">
+        dept_path,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="deviceId != null">
+        device_id,
+      </if>
+      <if test="deviceCode != null">
+        device_code,
+      </if>
+      <if test="doorIndexCode != null">
+        door_index_code,
+      </if>
+      <if test="deviceName != null">
+        device_name,
+      </if>
+      <if test="deviceType != null">
+        device_type,
+      </if>
+      <if test="doorName != null">
+        door_name,
+      </if>
+      <if test="devicel1Id != null">
+        devicel1_id,
+      </if>
+      <if test="devicel1Name != null">
+        devicel1_name,
+      </if>
+      <if test="devicel1Type != null">
+        devicel1_type,
+      </if>
+      <if test="devicel2Id != null">
+        devicel2_id,
+      </if>
+      <if test="devicel2Name != null">
+        devicel2_name,
+      </if>
+      <if test="devicel2Type != null">
+        devicel2_type,
+      </if>
+      <if test="devicel3Id != null">
+        devicel3_id,
+      </if>
+      <if test="devicel3Name != null">
+        devicel3_name,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="regionIdDevice != null">
+        region_id_device,
+      </if>
+      <if test="regionIdDoor != null">
+        region_id_door,
+      </if>
+      <if test="doorRegionName != null">
+        door_region_name,
+      </if>
+      <if test="deviceRegionName != null">
+        device_region_name,
+      </if>
+      <if test="devicel3Type != null">
+        devicel3_type,
+      </if>
+      <if test="doorId != null">
+        door_id,
+      </if>
+      <if test="triggerRecord != null">
+        trigger_record,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="cardPic != null">
+        card_pic,
+      </if>
+      <if test="cardStates != null">
+        card_states,
+      </if>
+      <if test="receiveTime != null">
+        receive_time,
+      </if>
+      <if test="svrIndexCode != null">
+        svr_index_code,
+      </if>
+      <if test="jobNumber != null">
+        job_number,
+      </if>
+      <if test="certNo != null">
+        cert_no,
+      </if>
+      <if test="studentId != null">
+        student_id,
+      </if>
+      <if test="inAndOut != null">
+        in_and_out,
+      </if>
+      <if test="eventTimeDif != null">
+        event_time_dif,
+      </if>
+      <if test="utcReceiveTime != null">
+        utc_receive_time,
+      </if>
+      <if test="receiveTimeDif != null">
+        receive_time_dif,
+      </if>
+      <if test="extendProperty != null">
+        extend_property,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eventId != null">
+        #{eventId,jdbcType=VARCHAR},
+      </if>
+      <if test="eventType != null">
+        #{eventType,jdbcType=INTEGER},
+      </if>
+      <if test="eventTime != null">
+        #{eventTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eventName != null">
+        #{eventName,jdbcType=VARCHAR},
+      </if>
+      <if test="eventCode != null">
+        #{eventCode,jdbcType=INTEGER},
+      </if>
+      <if test="eventCard != null">
+        #{eventCard,jdbcType=VARCHAR},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="personName != null">
+        #{personName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptPath != null">
+        #{deptPath,jdbcType=VARCHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceCode != null">
+        #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="doorIndexCode != null">
+        #{doorIndexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceName != null">
+        #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null">
+        #{deviceType,jdbcType=INTEGER},
+      </if>
+      <if test="doorName != null">
+        #{doorName,jdbcType=VARCHAR},
+      </if>
+      <if test="devicel1Id != null">
+        #{devicel1Id,jdbcType=VARCHAR},
+      </if>
+      <if test="devicel1Name != null">
+        #{devicel1Name,jdbcType=VARCHAR},
+      </if>
+      <if test="devicel1Type != null">
+        #{devicel1Type,jdbcType=INTEGER},
+      </if>
+      <if test="devicel2Id != null">
+        #{devicel2Id,jdbcType=VARCHAR},
+      </if>
+      <if test="devicel2Name != null">
+        #{devicel2Name,jdbcType=VARCHAR},
+      </if>
+      <if test="devicel2Type != null">
+        #{devicel2Type,jdbcType=INTEGER},
+      </if>
+      <if test="devicel3Id != null">
+        #{devicel3Id,jdbcType=VARCHAR},
+      </if>
+      <if test="devicel3Name != null">
+        #{devicel3Name,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="regionIdDevice != null">
+        #{regionIdDevice,jdbcType=VARCHAR},
+      </if>
+      <if test="regionIdDoor != null">
+        #{regionIdDoor,jdbcType=VARCHAR},
+      </if>
+      <if test="doorRegionName != null">
+        #{doorRegionName,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceRegionName != null">
+        #{deviceRegionName,jdbcType=VARCHAR},
+      </if>
+      <if test="devicel3Type != null">
+        #{devicel3Type,jdbcType=INTEGER},
+      </if>
+      <if test="doorId != null">
+        #{doorId,jdbcType=VARCHAR},
+      </if>
+      <if test="triggerRecord != null">
+        #{triggerRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cardPic != null">
+        #{cardPic,jdbcType=VARCHAR},
+      </if>
+      <if test="cardStates != null">
+        #{cardStates,jdbcType=INTEGER},
+      </if>
+      <if test="receiveTime != null">
+        #{receiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="svrIndexCode != null">
+        #{svrIndexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="jobNumber != null">
+        #{jobNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="certNo != null">
+        #{certNo,jdbcType=VARCHAR},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=VARCHAR},
+      </if>
+      <if test="inAndOut != null">
+        #{inAndOut,jdbcType=VARCHAR},
+      </if>
+      <if test="eventTimeDif != null">
+        #{eventTimeDif,jdbcType=VARCHAR},
+      </if>
+      <if test="utcReceiveTime != null">
+        #{utcReceiveTime,jdbcType=BIGINT},
+      </if>
+      <if test="receiveTimeDif != null">
+        #{receiveTimeDif,jdbcType=VARCHAR},
+      </if>
+      <if test="extendProperty != null">
+        #{extendProperty,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+
+
+
+
+  <!--business sql-->
+  <select id="listHistory" parameterType="com.hikvision.mybatis.model.HistoryPersonReq"
+          resultType="Map">
+    <bind name="key_offset" value="(pageNo - 1)*pageSize"/>
+    SELECT
+    inTable.person_name,
+    inTable.person_id,
+    inTable.dept_name,
+    inTable.job_number,
+    inTable.device_name AS in_deviceName,
+    inTable.event_time AS in_time,
+    outTable.device_name AS out_deviceName,
+    outTable.event_time AS out_time
+    FROM
+    (SELECT
+    t1.person_name, t1.person_id, t1.dept_name, t1.job_number, t1.device_name, t1.event_time
+    FROM tb_event t1 INNER JOIN
+    (SELECT person_id, MAX(event_time) AS event_time FROM tb_event WHERE in_and_out = '1' AND event_type in (198914, 196893) AND event_time &gt;= #{inStartTime,jdbcType=TIMESTAMP} AND event_time &lt;= #{inEndTime,jdbcType=TIMESTAMP} GROUP BY person_id) t2
+    ON t1.person_id = t2.person_id AND t1.event_time = t2.event_time) inTable
+    INNER JOIN
+    (SELECT
+    t1.person_name, t1.person_id, t1.dept_name, t1.job_number, t1.device_name, t1.event_time
+    FROM tb_event t1 INNER JOIN
+    (SELECT person_id, MAX(event_time) AS event_time FROM tb_event WHERE in_and_out = '0' AND event_type in (198914, 196893) AND event_time &gt;= #{outStartTime,jdbcType=TIMESTAMP} AND event_time &lt;= #{outEndTime,jdbcType=TIMESTAMP} GROUP BY person_id) t2
+    ON t1.person_id = t2.person_id AND t1.event_time = t2.event_time) outTable
+    ON inTable.person_id = outTable.person_id
+    ORDER BY outTable.event_time DESC
+    <if test="pageNo != null and pageSize != null">
+      LIMIT #{pageNo} OFFSET #{key_offset}
+    </if>
+
+  </select>
+  <select id="getById" resultMap="BaseResultMap">
+    select * from tb_event where event_id = #{id}
+  </select>
+  <select id="getCount" resultType="int">
+    SELECT
+    count(*) AS total
+    FROM
+    (SELECT
+    t1.person_name, t1.person_id, t1.dept_name, t1.job_number, t1.device_name, t1.event_time
+    FROM tb_event t1 INNER JOIN
+    (SELECT person_id, MAX(event_time) AS event_time FROM tb_event WHERE in_and_out = '1' AND event_type in (198914, 196893)  AND event_time &gt;= #{inStartTime,jdbcType=TIMESTAMP} AND event_time &lt;= #{inEndTime,jdbcType=TIMESTAMP} GROUP BY person_id) t2
+    ON t1.person_id = t2.person_id AND t1.event_time = t2.event_time) inTable
+    INNER JOIN
+    (SELECT
+    t1.person_name, t1.person_id, t1.dept_name, t1.job_number, t1.device_name, t1.event_time
+    FROM tb_event t1 INNER JOIN
+    (SELECT person_id, MAX(event_time) AS event_time FROM tb_event WHERE in_and_out = '0' AND event_type in (198914, 196893)  AND event_time &gt;= #{outStartTime,jdbcType=TIMESTAMP} AND event_time &lt;= #{outEndTime,jdbcType=TIMESTAMP} GROUP BY person_id) t2
+    ON t1.person_id = t2.person_id AND t1.event_time = t2.event_time) outTable
+    ON inTable.person_id = outTable.person_id
+  </select>
+</mapper>

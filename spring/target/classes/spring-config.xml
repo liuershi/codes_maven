@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--开启@AspectJ 的注解配置方式-->
+    <aop:aspectj-autoproxy/>
+
+    <beans profile="development">
+        <bean id="userDto" class="com.hikvision.spring.model.dto.UserDto" lazy-init="true" init-method="init" destroy-method="destroy">
+            <property name="name" value="张三"/>
+            <property name="age" value="26"/>
+            <property name="address" ref="addressDto"/>
+        </bean>
+
+        <bean id="addressDto" class="com.hikvision.spring.model.dto.AddressDto">
+            <property name="nation" value="中国"/>
+            <property name="province" value="浙江"/>
+            <property name="city" value="杭州"/>
+        </bean>
+
+        <bean id="helloService" class="com.hikvision.spring.service.impl.HelloServiceImpl"/>
+        <bean id="logArgsAspect" class="com.hikvision.spring.aspect.LogArgsAspect"/>
+        <bean id="logResultAspect" class="com.hikvision.spring.aspect.LogResultAspect"/>
+    </beans>
+
+    <beans profile="product">
+        <bean id="messageService" class="com.hikvision.spring.model.service.impl.MessageServiceImpl">
+            <replaced-method name="message"/>
+        </bean>
+    </beans>
+</beans>

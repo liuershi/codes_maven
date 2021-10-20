@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--该配置文件是mybatis单独使用的文件-->
+<configuration>
+    <properties resource="database.properties">
+        <property name="driver" value="org.postgresql.Driver"/>
+    </properties>
+
+    <settings>
+        <!--开启驼峰映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--更多属性参照：https://mybatis.org/mybatis-3/zh/configuration.html#settings -->
+
+        <!--开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+
+        <!--禁用一级缓存，实际上是缩小了缓存的作用域，并不是真正的禁用了缓存，在嵌套查询中子查询还是可能会引用到父类的缓存的-->
+<!--        <setting name="localCacheScope" value="STATEMENT"/>-->
+    </settings>
+
+    <!--类型别名可为 Java 类型设置一个缩写名字。 它仅用于 XML 配置，意在降低冗余的全限定类名书写-->
+    <typeAliases>
+        <typeAlias alias="DoorDto" type="com.hikvision.mybatis.model.DoorDto"/>
+    </typeAliases>
+
+    <!--自定义类型处理器，可以重写mybatis的类型处理器，也可以当没有非标准的类型处理器时，自定义类型处理器来满足自己的业务需求-->
+    <typeHandlers>
+        <typeHandler handler="com.hikvision.mybatis.core.ctm.CtmStringTypeHandler"/>
+    </typeHandlers>
+
+    <plugins>
+        <plugin interceptor="com.hikvision.mybatis.core.ctm.CtmInterceptor">
+            <property name="name" value="法外狂徒张三"/>
+        </plugin>
+    </plugins>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--方式一：直接配置属性-->
+            <!--<dataSource type="POOLED">
+                <property name="username" value="irds_irdsdb_user"/>
+                <property name="password" value="fbKROjx0"/>
+                <property name="driver" value="org.postgresql.Driver"/>
+                <property name="url" value="jdbc:postgresql://10.4.67.206:7092/irds_irdsdb?useUnicode=true"/>
+            </dataSource>-->
+
+            <!--方式二：通过外部文件配置到properties中设置-->
+            <dataSource type="POOLED">
+                <property name="username" value="${local13.username}"/>
+                <property name="password" value="${local13.password}"/>
+                <!--驱动值直接从properties标签属性中取-->
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${local13.url}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--方式一：使用相对路径声明映射文件的未知-->
+        <mapper resource="mapper/DoorMapper.xml"/>
+        <mapper resource="mapper/TbEventMapper.xml"/>
+        <mapper resource="mapper/TbUserMapper.xml"/>
+        <mapper resource="mapper/BlogMapper.xml"/>
+        <mapper resource="mapper/TbContentMapper.xml"/>
+
+        <!-- 方拾二：使用映射器接口实现类的完全限定类名 -->
+        <!--        <mapper class="com.hikvision.mybatis.dao.DoorDao"/>-->
+        
+    </mappers>
+</configuration>

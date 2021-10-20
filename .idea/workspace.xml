@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ec8c4a8-2c5d-4df1-99df-de4756efeeee" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/builder/xml/XMLMapperBuilder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/../../../dev-space/jdk1.8/src.zip!/com/sun/org/apache/xpath/internal/jaxp/XPathImpl.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/mapping/BoundSql.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/builder/MapperBuilderAssistant.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/parsing/XNode.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/builder/xml/XMLStatementBuilder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/parsing/XPathParser.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/../../../dev-space/jdk1.8/src.zip!/javax/xml/xpath/XPath.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/mapping/SqlSource.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.6/mybatis-3.4.6-sources.jar!/org/apache/ibatis/session/Configuration.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\thamos\dev-software\installation\maven\apache-maven-3.8.1" />
+        <option name="userSettingsFile" value="D:\thamos\dev-software\installation\maven\apache-maven-3.8.1\conf\settings_healthcode.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="1vcJl6TneZs25k5iGj7j0j5cfIh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../hikvision/svn_project/JKN20210817_591_1.0.0006/ctm05restrictpass-web" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.616836" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\thamos\dev-project\customize\codes_maven\io\src\main\java\com\hikvision\bio\three" />
+      <recent name="D:\thamos\dev-project\customize\codes_maven\io\src\main\java\com\hikvision\bio\two" />
+      <recent name="D:\thamos\dev-project\customize\codes_maven\netty-demo\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hikvision.mybatis.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hikvision.bio.two.Client" />
+      <module name="io" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hikvision.bio.two.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.hikvision.bio.one.Client" />
+      <module name="io" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hikvision.bio.one.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.hikvision.bio.two.Client" />
+      <module name="io" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hikvision.bio.two.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hikvision.bio.three.Client" />
+      <module name="io" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hikvision.bio.three.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hikvision.bio.four.Client" />
+      <module name="io" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hikvision.bio.four.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hikvision.bio.two.Server" />
+      <module name="io" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hikvision.bio.two.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hikvision.bio.three.Server" />
+      <module name="io" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hikvision.bio.three.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hikvision.bio.four.Server" />
+      <module name="io" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hikvision.bio.four.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Server (1)" />
+      <item itemvalue="Application.Client (1)" />
+      <item itemvalue="Application.Server (2)" />
+      <item itemvalue="Application.Server" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Server (2)" />
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Client (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ec8c4a8-2c5d-4df1-99df-de4756efeeee" name="Default Changelist" comment="" />
+      <created>1626855594438</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626855594438</updated>
+      <workItem from="1626855595799" duration="2327000" />
+      <workItem from="1626858014047" duration="1328000" />
+      <workItem from="1626859828249" duration="7410000" />
+      <workItem from="1626883209443" duration="444000" />
+      <workItem from="1626918350124" duration="594000" />
+      <workItem from="1626919554538" duration="3802000" />
+      <workItem from="1626955573702" duration="5577000" />
+      <workItem from="1627004963794" duration="21581000" />
+      <workItem from="1627116231326" duration="16690000" />
+      <workItem from="1627197895045" duration="5731000" />
+      <workItem from="1627264644917" duration="46126000" />
+      <workItem from="1627441701664" duration="21446000" />
+      <workItem from="1627740303305" duration="10025000" />
+      <workItem from="1627868717484" duration="1921000" />
+      <workItem from="1628088459288" duration="4176000" />
+      <workItem from="1628130601629" duration="197000" />
+      <workItem from="1628319744687" duration="17408000" />
+      <workItem from="1628473581298" duration="123000" />
+      <workItem from="1629040845118" duration="1898000" />
+      <workItem from="1629078155837" duration="68000" />
+      <workItem from="1629296730555" duration="2719000" />
+      <workItem from="1629338430120" duration="144000" />
+      <workItem from="1629523551201" duration="9950000" />
+      <workItem from="1629682576322" duration="282000" />
+      <workItem from="1629708755985" duration="2732000" />
+      <workItem from="1629719779265" duration="2366000" />
+      <workItem from="1629815693391" duration="3512000" />
+      <workItem from="1629856114495" duration="167000" />
+      <workItem from="1629900775203" duration="1820000" />
+      <workItem from="1630139754206" duration="8586000" />
+      <workItem from="1630153575159" duration="4442000" />
+      <workItem from="1630240989168" duration="4930000" />
+      <workItem from="1630287750289" duration="878000" />
+      <workItem from="1630419549509" duration="1556000" />
+      <workItem from="1630421518244" duration="30000" />
+      <workItem from="1630421597635" duration="4292000" />
+      <workItem from="1630591226915" duration="1402000" />
+      <workItem from="1630761487589" duration="5561000" />
+      <workItem from="1630817713700" duration="8047000" />
+      <workItem from="1630892365784" duration="21000" />
+      <workItem from="1630937925620" duration="3652000" />
+      <workItem from="1630979696716" duration="173000" />
+      <workItem from="1631024405667" duration="2566000" />
+      <workItem from="1631066200510" duration="117000" />
+      <workItem from="1631101119157" duration="3514000" />
+      <workItem from="1631347959835" duration="5980000" />
+      <workItem from="1631538751199" duration="3028000" />
+      <workItem from="1631541926685" duration="3729000" />
+      <workItem from="1631583796347" duration="181000" />
+      <workItem from="1631603288274" duration="5298000" />
+      <workItem from="1631684610749" duration="4486000" />
+      <workItem from="1632128494755" duration="11631000" />
+      <workItem from="1632212013038" duration="12353000" />
+      <workItem from="1632275197175" duration="7090000" />
+      <workItem from="1632297722592" duration="14505000" />
+      <workItem from="1632361646529" duration="35123000" />
+      <workItem from="1632642600215" duration="78000" />
+      <workItem from="1633613958374" duration="3146000" />
+      <workItem from="1633656823262" duration="12559000" />
+      <workItem from="1633741906231" duration="4823000" />
+      <workItem from="1633761335598" duration="27750000" />
+      <workItem from="1634046247260" duration="4775000" />
+      <workItem from="1634094827812" duration="14516000" />
+      <workItem from="1634372752745" duration="3397000" />
+      <workItem from="1634455932715" duration="11372000" />
+      <workItem from="1634608109837" duration="13978000" />
+      <workItem from="1634694408966" duration="12243000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.6/mybatis-spring-2.0.6-sources.jar!/org/mybatis/spring/SqlSessionTemplate.java</url>
+          <line>423</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/netty-demo/src/test/java/com/hikvision/netty/demo/TestScatteredByteBuffer.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/netty-demo/src/test/java/com/hikvision/netty/demo/test1/NioClient.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/leetcode/src/main/java/com/hikvision/letcode/Demo5.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/leetcode/src/main/java/com/hikvision/letcode/Demo6.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mybatis/src/main/java/com/hikvision/mybatis/demo/Test4.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/other/src/main/java/com/hikvision/other/test/Test4.java</url>
+          <line>24</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.apache.ibatis.session.Configuration" memberName="returnInstanceForEmptyRow" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

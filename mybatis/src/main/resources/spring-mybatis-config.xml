@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<!--该配置文件是整合spring的mybatis配置文件，该文件会在spring的配置文件中被引用-->
+<configuration>
+
+    <settings>
+        <!--开启驼峰映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--更多属性参照：https://mybatis.org/mybatis-3/zh/configuration.html#settings -->
+    </settings>
+
+    <!--类型别名可为 Java 类型设置一个缩写名字。 它仅用于 XML 配置，意在降低冗余的全限定类名书写-->
+    <typeAliases>
+        <typeAlias alias="DoorDto" type="com.hikvision.mybatis.model.DoorDto"/>
+    </typeAliases>
+
+    <mappers>
+        <!--方式一：使用相对路径声明映射文件的未知-->
+        <mapper resource="mapper/DoorMapper.xml"/>
+
+        <!-- 方拾二：使用映射器接口实现类的完全限定类名 -->
+        <!--        <mapper class="com.hikvision.mybatis.dao.DoorDao"/>-->
+
+    </mappers>
+</configuration>

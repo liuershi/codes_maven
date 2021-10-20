@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hikvision.mybatis.dao.BlogMapper">
+    <resultMap id="getByIdMap" type="com.hikvision.mybatis.model.Blog">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="create_time" property="createTime"/>
+        <association property="author" column="author_id" javaType="com.hikvision.mybatis.model.TbUser" select="selectAuthor"/>
+        <association property="contents" column="author_id" javaType="java.util.List" select="selectContentById"/>
+    </resultMap>
+
+    <select id="getById" parameterType="String" resultMap="getByIdMap" resultType="com.hikvision.mybatis.model.Blog">
+        select * from tb_blog where id = #{id}
+    </select>
+
+    <select id="selectAuthor" parameterType="String" resultType="com.hikvision.mybatis.model.TbUser">
+        select * from tb_user where id = #{author_id}
+    </select>
+
+    <select id="selectContentById" parameterType="String" resultType="com.hikvision.mybatis.model.TbContent">
+        select * from tb_content where user_id = #{author_id}
+    </select>
+</mapper>
