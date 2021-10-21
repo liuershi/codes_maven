@@ -11,6 +11,7 @@ import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
 
 import javax.net.ssl.SSLException;
 import java.net.InetSocketAddress;
+import java.util.Optional;
 
 /**
  * @author zhangwei151
@@ -44,12 +45,11 @@ public class Client {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ChannelPipeline p = ch.pipeline();
-                            if (sslContext != null) {
-                                p.addLast(sslContext.newHandler(ch.alloc(), HOST, PORT));
-                            }
+                            ChannelPipeline pipeline = ch.pipeline();
+                            Optional.ofNullable(sslContext)
+                                    .ifPresent(context -> pipeline.addLast(sslContext.newHandler(ch.alloc(), HOST, PORT)));
                             //p.addLast(new LoggingHandler(LogLevel.INFO));
-                            p.addLast(null);
+                            pipeline.addLast(new ClientHandler());
                         }
                     });
 
