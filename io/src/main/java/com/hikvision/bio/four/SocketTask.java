@@ -23,6 +23,7 @@ public class SocketTask implements Runnable{
     public void run() {
         // 1.获取输入流并包装读取内容
         try {
+            System.out.println("接受客户端请求，客户端地址为：" + socket.getRemoteSocketAddress().toString());
             InputStream is = socket.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String content = null;
