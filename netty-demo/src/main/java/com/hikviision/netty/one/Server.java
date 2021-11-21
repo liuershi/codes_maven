@@ -13,6 +13,7 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 import javax.net.ssl.SSLException;
 import java.net.InetSocketAddress;
 import java.security.cert.CertificateException;
+import java.util.Date;
 import java.util.Optional;
 
 /**
@@ -21,7 +22,6 @@ import java.util.Optional;
  * @date 2021/10/21 17:02
  */
 public class Server {
-
     static final boolean SSL = System.getProperty("ssl") != null;
     static final int PORT = Integer.parseInt(System.getProperty("port", "9999"));
 
@@ -44,13 +44,15 @@ public class Server {
             bootstrap.group(boosGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .option(ChannelOption.SO_BACKLOG, 100)
-                    .handler(new LoggingHandler())
+//                    .handler(new LoggingHandler())
+                    .handler(new ServerSimpleHandler())
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
                             Optional.ofNullable(sslContext).ifPresent(context -> pipeline.addLast(sslContext.newHandler(ch.alloc())));
                             pipeline.addLast("serverHandler", new ServerHandler());
+                            pipeline.addLast("testHandler", new TestInBound());
                         }
                     });
 
