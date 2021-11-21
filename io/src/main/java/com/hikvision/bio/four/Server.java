@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Server {
 
-    private static final Executor REQUEST_HANDLER_POOL = new ThreadPoolExecutor(5, 10, 60, TimeUnit.SECONDS,
+    private static final Executor REQUEST_HANDLER_POOL = new ThreadPoolExecutor(3, 10, 60, TimeUnit.SECONDS,
             new LinkedBlockingQueue<>(),
             new ThreadFactory() {
                 private final AtomicInteger count = new AtomicInteger(0);
