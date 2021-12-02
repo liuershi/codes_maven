@@ -23,6 +23,7 @@
         <module>other</module>
         <module>netty-demo</module>
         <module>io</module>
+        <module>spring-rabbitmq</module>
     </modules>
 
     <properties>
