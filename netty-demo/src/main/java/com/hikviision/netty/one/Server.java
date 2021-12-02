@@ -52,7 +52,7 @@ public class Server {
                             ChannelPipeline pipeline = ch.pipeline();
                             Optional.ofNullable(sslContext).ifPresent(context -> pipeline.addLast(sslContext.newHandler(ch.alloc())));
                             pipeline.addLast("serverHandler", new ServerHandler());
-                            pipeline.addLast("testHandler", new TestInBound());
+//                            pipeline.addLast("testHandler", new TestInBound());
                         }
                     });
 
