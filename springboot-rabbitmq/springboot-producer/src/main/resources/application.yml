@@ -1,0 +1,25 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /
+
+spring:
+  rabbitmq:
+    host: 192.168.13.13
+    username: admin
+    password: 123456
+    virtual-host: /
+    publisher-confirms: true
+    publisher-returns: true
+    template:
+      mandatory: true
+  datasource:
+    username: root
+    password: Fishball95@
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.13.13:3306/rabbitmq?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis-plus:
+  type-aliases-package: com.hikvision.producer
+  mapper-locations: classpath:/mapper/*.xml

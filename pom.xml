@@ -24,6 +24,7 @@
         <module>netty-demo</module>
         <module>io</module>
         <module>spring-rabbitmq</module>
+        <module>springboot-rabbitmq</module>
     </modules>
 
     <properties>
