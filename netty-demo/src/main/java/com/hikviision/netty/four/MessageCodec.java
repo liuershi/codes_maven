@@ -2,8 +2,11 @@ package com.hikviision.netty.four;
 
 import com.hikviision.netty.utils.ByteUtils;
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageCodec;
+import io.netty.handler.codec.MessageToByteEncoder;
+import io.netty.handler.codec.MessageToMessageCodec;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -12,10 +15,17 @@ import java.util.List;
  * @author zhangwei151
  * @date 2021/12/5 1:14
  */
+
+/**
+ * 通过实现MessageToMessageCodec来加上Sharable注解，使用ByteToMessageCodec无法被Sharable注解修饰
+ */
+@ChannelHandler.Sharable
 @Slf4j
-public class MessageCodec extends ByteToMessageCodec<Message> {
+public class MessageCodec extends MessageToMessageCodec<ByteBuf ,Message> {
+
     @Override
-    protected void encode(ChannelHandlerContext ctx, Message msg, ByteBuf out) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, Message msg, List<Object> outs) throws Exception {
+        ByteBuf out = ctx.alloc().buffer();
         // 1.设置魔数，默认AABB（4字节）
         out.writeInt(0xAABB);
         // 2.版本号（1字节）
@@ -33,6 +43,7 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
         out.writeByte(0xff);
         // 7.数据内容
         out.writeBytes(content);
+        outs.add(out);
     }
 
     @Override
