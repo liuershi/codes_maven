@@ -31,10 +31,4 @@ public class LoginRequestMessageHandler extends SimpleChannelInboundHandler<Logi
         }
         ctx.writeAndFlush(loginResponseMessage);
     }
-
-    @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        Channel channel = ctx.channel();
-        SessionFactory.getSession().unbind(channel);
-    }
 }

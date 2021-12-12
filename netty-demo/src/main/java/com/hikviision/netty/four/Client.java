@@ -1,14 +1,14 @@
 package com.hikviision.netty.four;
 
-import com.hikviision.netty.four.session.Session;
-import com.hikviision.netty.four.session.SessionFactory;
+import com.hikviision.netty.four.handler.BusinessHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.timeout.IdleStateEvent;
+import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.checkerframework.checker.units.qual.A;
 
 import java.net.InetSocketAddress;
 import java.util.Scanner;
@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 public class Client {
 
-    private static final ExecutorService POOL = new ThreadPoolExecutor(10, 20, 60, TimeUnit.SECONDS,
+    public static final ExecutorService POOL = new ThreadPoolExecutor(10, 20, 60, TimeUnit.SECONDS,
             new LinkedBlockingQueue<>(),
             new ThreadFactory() {
                 private final AtomicInteger COUNT = new AtomicInteger();
@@ -55,97 +55,18 @@ public class Client {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
                             pipeline.addLast("customizeCodec", new MessageCodec());
-                            pipeline.addLast("businessHandler", new ChannelInboundHandlerAdapter(){
+                            pipeline.addLast("businessHandler", new BusinessHandler(scanner, countDownLatch, result));
+                            // 客户端发送心跳包，保持活性
+                            // 还是通过空闲检测实现，不过检测时间比服务端短，一般为其的二分之一
+                            pipeline.addLast(new IdleStateHandler(0, 2, 0));
+                            pipeline.addLast(new ChannelDuplexHandler(){
                                 @Override
-                                public void channelActive(ChannelHandlerContext ctx) throws Exception {
-                                    // 连接建立后发送请求
-                                    POOL.execute(() -> {
-                                        log.info("开始登录操作");
-                                        log.info("请输入用户名：");
-                                        String username = scanner.nextLine();
-                                        log.info("请输入密码：");
-                                        String password = scanner.nextLine();
-                                        // 构建对象准备写出
-                                        Message message = new LoginRequestMessage(username, password, null);
-                                        ctx.writeAndFlush(message);
-
-                                        // 等待结果响应，如果失败则关闭连接
-                                        try {
-                                            countDownLatch.await();
-                                            if (!result.get()) {
-                                                // 失败则关闭连接
-                                                ctx.channel().close();
-                                                POOL.shutdownNow();
-                                                return;
-                                            }
-                                        } catch (InterruptedException e) {
-                                            // ignore
-                                        }
-
-                                        // 允许继续操作
-                                        log.info("登录成功，按以下格式进行操作");
-                                        while (true) {
-                                            log.info("=============================");
-                                            log.info("send [username] [content]");
-                                            log.info("gsend [group name] [content]");
-                                            log.info("gcreate [group name] [m1,m2,m3...]");
-                                            log.info("gmerbers [group name]");
-                                            log.info("gjoin [group name]");
-                                            log.info("gquit [group name]");
-                                            log.info("quit");
-                                            log.info("=============================");
-                                            String line = scanner.nextLine();
-                                            // 根据不同命令执行对应操作
-                                            String[] contents = line.split(" ");
-                                            switch (contents[0]) {
-                                                case "send" :
-                                                    ChatRequestMessage chatRequestMessage = new ChatRequestMessage(contents[contents.length - 1], username, contents[1]);
-                                                    ctx.writeAndFlush(chatRequestMessage);
-                                                    break;
-                                                case "gsend" :
-                                                    break;
-                                                case "gcreate" :
-                                                    break;
-                                                case "gmerbers" :
-                                                    break;
-                                                case "gjoin" :
-                                                    break;
-                                                case "gquit" :
-                                                    break;
-                                                case "quit" :
-                                                    ctx.channel().close();
-                                                    POOL.shutdownNow();
-                                                    return;
-                                                default:
-                                                    break;
-                                            }
-                                        }
-                                    });
-                                }
-
-                                @Override
-                                public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-                                    // 接受服务端登录响应
-                                    if (msg instanceof LoginResponseMessage) {
-                                        LoginResponseMessage message = (LoginResponseMessage) msg;
-                                        if (message.isSuccess()) {
-                                            log.info("登录成功");
-
-                                            boolean old;
-                                            do {
-                                                old = result.get();
-                                            } while (!result.compareAndSet(old, true));
-                                        } else {
-                                            log.info("登录失败，失败原因为：" + message.getReason());
-                                        }
-                                        countDownLatch.countDown();
-                                    } else if (msg instanceof ChatResponseMessage) {
-                                        ChatResponseMessage responseMessage = (ChatResponseMessage) msg;
-                                        if (responseMessage.isSuccess()) {
-                                            log.info("receive {} message is : {}", responseMessage.getFrom(), responseMessage.getContent());
-                                        } else {
-                                            log.error("{}", responseMessage.getReason());
-                                        }
+                                public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+                                    // 此时三秒没有写数据了
+                                    if (evt instanceof IdleStateEvent && evt == IdleStateEvent.WRITER_IDLE_STATE_EVENT) {
+                                        log.info("产生写了空闲");
+                                        // 向服务端发送心跳包
+                                        ctx.writeAndFlush(new PingMessage());
                                     }
                                 }
                             });
@@ -160,4 +81,5 @@ public class Client {
             eventLoopGroup.shutdownGracefully();
         }
     }
+
 }

@@ -28,4 +28,18 @@ public interface Session {
      * @return
      */
     Channel getChannel(String username);
+
+    /**
+     * 获取通道
+     * @param channel 通道
+     * @return
+     */
+    String getUsername(Channel channel);
+
+    /**
+     * 检测用户是否在线
+     * @param username 用户名
+     * @return
+     */
+    boolean checkUser(String username);
 }

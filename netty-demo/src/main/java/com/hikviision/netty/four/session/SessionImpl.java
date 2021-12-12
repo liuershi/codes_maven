@@ -4,6 +4,7 @@ import io.netty.channel.Channel;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -37,7 +38,7 @@ public class SessionImpl implements Session {
     @Override
     public void unbind(Channel channel) {
         String username = channelUsernameMap.get(channel);
-        usernameChannelMap.remove(username);
+        Optional.ofNullable(username).ifPresent(item -> usernameChannelMap.remove(item));
         channelUsernameMap.remove(channel);
         channelAttrsMap.remove(channel);
     }
@@ -45,5 +46,15 @@ public class SessionImpl implements Session {
     @Override
     public Channel getChannel(String username) {
         return usernameChannelMap.get(username);
+    }
+
+    @Override
+    public String getUsername(Channel channel) {
+        return channelUsernameMap.get(channel);
+    }
+
+    @Override
+    public boolean checkUser(String username) {
+        return usernameChannelMap.containsKey(username);
     }
 }

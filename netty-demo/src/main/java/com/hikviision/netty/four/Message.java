@@ -46,6 +46,10 @@ public abstract class Message implements Serializable {
     public static int GroupMembersRequestMessage = 12;
     public static int GroupMembersResponseMessage = 13;
 
+
+    public static int PingMessage = 14;
+    public static int PongMessage = 15;
+
     private static final Map<Integer, Class<?>> messageClasses = new HashMap<>();
 
     static {
