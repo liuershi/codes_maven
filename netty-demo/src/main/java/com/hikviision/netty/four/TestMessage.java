@@ -1,5 +1,6 @@
 package com.hikviision.netty.four;
 
+import com.hikviision.netty.four.handler.MessageCodec;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.embedded.EmbeddedChannel;
@@ -27,7 +28,7 @@ public class TestMessage {
         // 测试解码
         MessageCodec codec = new MessageCodec();
         ByteBuf buffer = ByteBufAllocator.DEFAULT.buffer();
-        codec.encode(null, message, null);
+//        codec.encode(null, message, null);
 //        channel.writeInbound(buffer);
 
         // 测试半包

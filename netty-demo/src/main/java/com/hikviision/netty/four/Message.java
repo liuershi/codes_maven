@@ -67,6 +67,8 @@ public abstract class Message implements Serializable {
         messageClasses.put(GroupChatResponseMessage, com.hikviision.netty.four.GroupChatResponseMessage.class);
         messageClasses.put(GroupMembersRequestMessage, com.hikviision.netty.four.GroupMembersRequestMessage.class);
         messageClasses.put(GroupMembersResponseMessage, com.hikviision.netty.four.GroupMembersResponseMessage.class);
+
+        messageClasses.put(PingMessage, com.hikviision.netty.four.PingMessage.class);
     }
 
     public static Class<?> getMessageClass(int message) {

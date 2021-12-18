@@ -1,6 +1,7 @@
 package com.hikviision.netty.four;
 
 import com.hikviision.netty.four.handler.BusinessHandler;
+import com.hikviision.netty.four.handler.MessageCodec;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -64,7 +65,7 @@ public class Client {
                                 public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
                                     // 此时三秒没有写数据了
                                     if (evt instanceof IdleStateEvent && evt == IdleStateEvent.WRITER_IDLE_STATE_EVENT) {
-                                        log.info("产生写了空闲");
+//                                        log.info("产生写了空闲");
                                         // 向服务端发送心跳包
                                         ctx.writeAndFlush(new PingMessage());
                                     }
