@@ -23,7 +23,7 @@ public class ChatRequestMessage extends Message{
 
 
     @Override
-    public int getType() {
+    public int getMessageType() {
         return ChatRequestMessage;
     }
 }

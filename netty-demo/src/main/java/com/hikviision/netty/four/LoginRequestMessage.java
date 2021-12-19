@@ -14,7 +14,7 @@ public class LoginRequestMessage extends Message{
     private String nickname;
 
     @Override
-    public int getType() {
+    public int getMessageType() {
         return LoginRequestMessage;
     }
 

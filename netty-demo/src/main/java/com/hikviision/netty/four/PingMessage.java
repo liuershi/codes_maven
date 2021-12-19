@@ -8,7 +8,7 @@ package com.hikviision.netty.four;
  */
 public class PingMessage extends Message {
     @Override
-    public int getType() {
+    public int getMessageType() {
         return PingMessage;
     }
 }

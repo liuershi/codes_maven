@@ -19,7 +19,7 @@ public class GroupCreateRequestMessage extends Message{
     private Set<String> members;
 
     @Override
-    public int getType() {
+    public int getMessageType() {
         return GroupCreateRequestMessage;
     }
 }

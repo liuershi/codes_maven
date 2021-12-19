@@ -1,8 +1,11 @@
 package com.hikviision.netty.four.protocol;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
+import com.hikviision.netty.four.rpc.Test;
 import com.hikviision.netty.utils.ByteUtils;
+import lombok.SneakyThrows;
 
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -58,16 +61,35 @@ public interface MySerializer {
         JSON {
             @Override
             public <T> byte[] serializer(T object) {
-                Gson gson = new Gson();
+                Gson gson = new GsonBuilder().
+                        registerTypeAdapter(Class.class, new ClassCodec())
+                        .create();
                 String json = gson.toJson(object);
                 return json.getBytes(StandardCharsets.UTF_8);
             }
 
             @Override
             public <T> T deserialize(Class<T> clazz, byte[] bytes) {
-                Gson gson = new Gson();
+                Gson gson = new GsonBuilder().
+                        registerTypeAdapter(Class.class, new ClassCodec())
+                        .create();
                 String content = new String(bytes, StandardCharsets.UTF_8);
                 return gson.fromJson(content, clazz);
+            }
+
+            class ClassCodec implements JsonSerializer<Class<?>>, JsonDeserializer<Class<?>> {
+
+                @SneakyThrows
+                @Override
+                public Class<?> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                    String asString = json.getAsString();
+                    return Class.forName(asString);
+                }
+
+                @Override
+                public JsonElement serialize(Class src, Type typeOfSrc, JsonSerializationContext context) {
+                    return new JsonPrimitive(src.getName());
+                }
             }
         };
     }

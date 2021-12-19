@@ -28,7 +28,7 @@ public abstract class Message implements Serializable {
      * 获取具体操作类型
      * @return
      */
-    public abstract int getType();
+    public abstract int getMessageType();
 
 
     public static int LoginRequestMessage = 0;
@@ -45,6 +45,12 @@ public abstract class Message implements Serializable {
     public static int GroupChatResponseMessage = 11;
     public static int GroupMembersRequestMessage = 12;
     public static int GroupMembersResponseMessage = 13;
+
+    /**
+     * 新增RPC请求消息类型
+     */
+    public static int RPC_MESSAGE_TYPE_REQUEST = 101;
+    public static int RPC_MESSAGE_TYPE_RESPONSE = 102;
 
 
     public static int PingMessage = 14;
@@ -69,6 +75,10 @@ public abstract class Message implements Serializable {
         messageClasses.put(GroupMembersResponseMessage, com.hikviision.netty.four.GroupMembersResponseMessage.class);
 
         messageClasses.put(PingMessage, com.hikviision.netty.four.PingMessage.class);
+
+        // 序列化
+        messageClasses.put(RPC_MESSAGE_TYPE_REQUEST, com.hikviision.netty.four.RpcRequestMessage.class);
+        messageClasses.put(RPC_MESSAGE_TYPE_RESPONSE, com.hikviision.netty.four.RpcResponseMessage.class);
     }
 
     public static Class<?> getMessageClass(int message) {

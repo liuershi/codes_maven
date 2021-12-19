@@ -25,7 +25,7 @@ public class ChatResponseMessage extends AbstractResponseMessage {
     }
 
     @Override
-    public int getType() {
+    public int getMessageType() {
         return ChatResponseMessage;
     }
 }

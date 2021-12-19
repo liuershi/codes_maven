@@ -20,7 +20,7 @@ public class GroupChatRequestMessage extends Message{
     }
 
     @Override
-    public int getType() {
+    public int getMessageType() {
         return GroupChatRequestMessage;
     }
 }

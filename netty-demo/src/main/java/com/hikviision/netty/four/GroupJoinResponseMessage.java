@@ -11,7 +11,7 @@ public class GroupJoinResponseMessage extends AbstractResponseMessage {
     }
 
     @Override
-    public int getType() {
+    public int getMessageType() {
         return GroupJoinResponseMessage;
     }
 }

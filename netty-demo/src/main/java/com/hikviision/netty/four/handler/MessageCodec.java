@@ -3,12 +3,9 @@ package com.hikviision.netty.four.handler;
 import com.hikviision.netty.four.Message;
 import com.hikviision.netty.four.config.ConfigProperties;
 import com.hikviision.netty.four.protocol.MySerializer;
-import com.hikviision.netty.utils.ByteUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.ByteToMessageCodec;
-import io.netty.handler.codec.MessageToByteEncoder;
 import io.netty.handler.codec.MessageToMessageCodec;
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,7 +34,7 @@ public class MessageCodec extends MessageToMessageCodec<ByteBuf , Message> {
         MySerializer.Algorithm algorithm = MySerializer.Algorithm.valueOf(ConfigProperties.getValue(MySerializer.KEY));
         out.writeByte(algorithm.ordinal());
         // 4.指令类型（1字节）
-        out.writeByte(msg.getType());
+        out.writeByte(msg.getMessageType());
         // 5.请求序号（4字节）
         out.writeInt(msg.getSequenceId());
         // 6.正文长度（4字节）

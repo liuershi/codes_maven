@@ -22,7 +22,7 @@ public class GroupMembersResponseMessage extends AbstractResponseMessage {
     }
 
     @Override
-    public int getType() {
+    public int getMessageType() {
         return GroupMembersResponseMessage;
     }
 }
